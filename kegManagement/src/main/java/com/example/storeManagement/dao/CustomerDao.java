@@ -1,0 +1,58 @@
+package com.example.storeManagement.dao;
+
+import com.example.storeManagement.domain.Call;
+import com.example.storeManagement.domain.Customer;
+import com.example.storeManagement.services.customers.CustomerNotFoundException;
+
+import java.util.List;
+
+// FOR USE IN A LATER CHAPTER - PLEASE IGNORE UNTIL THEN
+
+public interface CustomerDao 
+{
+	/**
+	 * Creates a new customer record in the database
+	 */
+	public void create(Customer customer);
+
+	/**
+	 * Finds a customer based on their ID
+	 */
+	public Customer getById(int customerId) throws RecordNotFoundException;
+
+	/**
+	 * Finds all customers whose company name matches the specified name
+	 */
+	public List<Customer> getByName(String name) throws CustomerNotFoundException;
+
+	/**
+	 * Updates the specified customer in the database.
+	 */
+	public void update(Customer customerToUpdate) throws RecordNotFoundException;
+	
+	/**
+	 * Deletes the specified customer from the database.
+	 */
+	public void delete(Customer oldCustomer) throws RecordNotFoundException;
+
+	/**
+	 * Returns a complete collection of customer objects. Note that it is NOT necessary
+	 * to for this method to also return the associated calls (ie getCalls() will return null). 
+	 * 
+	 * This is for efficiency reasons - we may not be interested in the calls for ALL customers
+	 * in ths system.
+	 * @return
+	 */
+	public List<Customer> getAllCustomers();
+	
+	/**
+	 * Returns the full detail for this customer - ie the customer object and ALL
+	 * calls associated with this customer
+	 */
+	public Customer getFullCustomerDetail(int customerId) throws RecordNotFoundException;
+	
+	/**
+	 * Links the specifed call to the customer in the database.
+	 */
+	public void addCall(Call newCall, int customerId) throws RecordNotFoundException;
+}

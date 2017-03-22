@@ -30,6 +30,7 @@ public class Call
 	 * something better like http://joda-time.sourceforge.net/)
 	 */
 	private Date timeAndDate;
+        private String Namesl;
 	
 	/**
 	 * General notes about the call made 

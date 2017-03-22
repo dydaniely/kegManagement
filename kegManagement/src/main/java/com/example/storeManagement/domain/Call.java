@@ -32,7 +32,7 @@ public class Call
 	private Date timeAndDate;
 	
 	/**
-	 * General notes about the call
+	 * General notes about the call made 
 	 */
 	private String notes;
 	
